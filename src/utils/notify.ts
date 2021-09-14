@@ -35,7 +35,7 @@ interface NotifyInmlements {
  * 通知类的继承
  */
 class Notify implements NotifyInmlements {
-  info(message: string, title: string): void {
+  info(message: string, title?: string): void {
     handleComp({ message: message, title: title, type: 'info' })
   }
 }

@@ -150,6 +150,7 @@
     "vue/html-comment-content-newline": "error",
     "vue/html-comment-content-spacing": "error",
     "vue/html-comment-indent": "error",
-    "vue/html-end-tags": "error"
+    "vue/html-end-tags": "error",
+    "@typescript-eslint/no-var-requires": 0
   }
 }

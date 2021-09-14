@@ -6,6 +6,7 @@
     </span>
     <Button type="primary" @click="handleSubmit">submit</Button>
     <v-banner msg="hello, 我是一个大男孩"></v-banner>
+    <svg-icon icon-class="vue"></svg-icon>
   </div>
 </template>
 <script setup lang="ts">

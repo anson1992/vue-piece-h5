@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
+
 module.exports = {
   // 链式调用
   chainWebpack: (config) => {
@@ -19,6 +20,19 @@ module.exports = {
         .plugin('webpack-bundle-analyzer')
         .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
     }
+    // 配置svg: 添加svg-sprite-loader插件，加载svg图标
+    config.module
+      .rule('svg-icon')
+      .include.add(resolve('src/assets/icon/svg'))
+      .end()
+      .test(/\.svg$/)
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+    // 删除自带的svg解析规则
+    config.module.rule('svg').exclude.add(resolve('src/assets/icon/svg'))
   },
   css: {
     loaderOptions: {
