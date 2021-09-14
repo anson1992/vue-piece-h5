@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --report",
+    "build-fix": "vue-cli-service build --mode development-fix  --report",
+    "build-release": "vue-cli-service build --mode release  --report",
+    "build": "vue-cli-service build --mode production  --report",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "lint:markup": "vue-tsc --noEmit"
   },
