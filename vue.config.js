@@ -3,8 +3,12 @@ const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
+  productionSourceMap: false,
   // 链式调用
   chainWebpack: (config) => {
+    // 降低带宽请求
+    config.plugins.delete('preload')
+    config.plugins.delete('prefetch')
     config.plugin('html').tap((args) => {
       args[0].title = 'piece'
       return args

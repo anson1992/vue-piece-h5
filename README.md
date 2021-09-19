@@ -19,6 +19,16 @@ Vue3.2、webpack5、vant、Typescript、Pretter、Eslint、Vuex、Axios
 | 预发布  | release  |  release |  npm run build-release  |
 | 生产  | production  | production  |  npm run build  |
 
+### Vue 优化方案
+#### 禁用js和css的预加载
+
+在vue.config.js中，链式调用配置chainWebpack
+
+```
+ config.plugins.delete('preload')
+ config.plugins.delete('prefetch')
+```
+
 
 ------------
 
