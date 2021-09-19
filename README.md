@@ -24,6 +24,10 @@ Vue3.2、webpack5、vant、Typescript、Pretter、Eslint、Vuex、Axios
 
 在vue.config.js中，链式调用配置chainWebpack
 
+
+### 基于Axios的接口请求
+### Storage 加密及公共方法
+
 ```
  config.plugins.delete('preload')
  config.plugins.delete('prefetch')
