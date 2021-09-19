@@ -5,14 +5,12 @@
       {{ userInfo.name }}
     </span>
     <Button type="primary" @click="handleSubmit">submit</Button>
-    <v-banner msg="hello, 我是一个大男孩"></v-banner>
     <svg-icon icon-class="vue"></svg-icon>
   </div>
 </template>
 <script setup lang="ts">
   import { reactive } from 'vue'
   import { Button, Toast } from 'vant'
-  import vBanner from '@/components/v-banner/index.vue'
   import Notify from '../../utils/notify'
   interface UserInfo {
     id: number
