@@ -10,8 +10,7 @@
 </template>
 <script setup lang="ts">
   import { reactive } from 'vue'
-  import { Button, Toast } from 'vant'
-  import Notify from '../../utils/notify'
+  import { Button } from 'vant'
   interface UserInfo {
     id: number
     name: string
@@ -21,12 +20,8 @@
     name: '常竣'
   })
   const handleSubmit = () => {
-    Notify.info('我是一个提示消息！')
+    console.log(1)
   }
-  Toast.loading({
-    forbidClick: true,
-    message: '加载中...'
-  })
 </script>
 <style scoped>
   @import url('./index.scss');
