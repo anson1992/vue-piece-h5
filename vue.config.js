@@ -41,15 +41,18 @@ module.exports = {
     config.module.rule('svg').exclude.add(resolve('src/assets/icon/svg'))
   },
   configureWebpack: (config) => {
-    config.plugins.push(
-      new CompressionPlugin({
-        algorithm: 'gzip',
-        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-        threshold: 10240,
-        minRatio: 0.8,
-        deleteOriginalAssets: false
-      })
-    )
+    // 打包环境
+    if (!isDev) {
+      config.plugins.push(
+        new CompressionPlugin({
+          algorithm: 'gzip',
+          test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+          threshold: 10240,
+          minRatio: 0.8,
+          deleteOriginalAssets: false
+        })
+      )
+    }
   },
   css: {
     loaderOptions: {
