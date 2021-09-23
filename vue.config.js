@@ -1,5 +1,7 @@
 const { resolve } = require('path')
-const path = require('path')
+const CompressionPlugin = require('compression-webpack-plugin')
+// 需要压缩的类型
+const productionGzipExtensions = ['js', 'css']
 const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
@@ -37,6 +39,17 @@ module.exports = {
       })
     // 删除自带的svg解析规则
     config.module.rule('svg').exclude.add(resolve('src/assets/icon/svg'))
+  },
+  configureWebpack: (config) => {
+    config.plugins.push(
+      new CompressionPlugin({
+        algorithm: 'gzip',
+        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+        threshold: 10240,
+        minRatio: 0.8,
+        deleteOriginalAssets: false
+      })
+    )
   },
   css: {
     loaderOptions: {
