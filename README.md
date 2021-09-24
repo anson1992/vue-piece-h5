@@ -20,9 +20,18 @@ Vue3.2、webpack5、vant、Typescript、Pretter、Eslint、Vuex、Axios
 | 生产  | production  | production  |  npm run build  |
 
 ### Vue 优化方案
-#### 禁用js和css的预加载
+- [x] 禁用js和css的预加载
+- [x] Gizp压缩js
+- [x] 全局环境变量+打包配置
+- [ ] 跨域proxy代理
+- [x] 修复 HMR(热更新)失效
+- [x] 添加请求别名Alias
+- [x] px转rem移动端适配
+- [x] svg图标组件
+- [x] 图片压缩
+- [x] cdn加载包文件
+- [x] 添加打包分析
 
-在vue.config.js中，链式调用配置chainWebpack
 
 
 ### 基于Axios的接口请求

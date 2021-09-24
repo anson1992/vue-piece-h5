@@ -6,11 +6,12 @@
      "jsx": "preserve",
      "importHelpers": true,
      "moduleResolution": "node",
-    "skipLibCheck": true,
+     "skipLibCheck": true,
      "esModuleInterop": true,
      "allowSyntheticDefaultImports": true,
      "sourceMap": true,
      "baseUrl": ".",
+     "watch": true,
      "types": [
       "webpack-env"
     ],

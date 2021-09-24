@@ -6,6 +6,7 @@
     </span>
     <Button type="primary" @click="handleSubmit">submit</Button>
     <svg-icon icon-class="vue"></svg-icon>
+    <img alt="" class="logo-image" src="../../assets/images/xiaofa.png" />
   </div>
 </template>
 <script setup lang="ts">
