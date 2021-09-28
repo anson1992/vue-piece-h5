@@ -51,7 +51,7 @@
     "prerender-spa-plugin": "3.4.0",
     "prettier": "^2.4.0",
     "sass": "^1.39.2",
-    "sass-loader": "^10.1.1",
+    "sass-loader": "10.2.0",
     "secure-ls": "^1.2.6",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",

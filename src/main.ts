@@ -6,6 +6,6 @@ import store from './store'
 import 'amfe-flexible/index.js'
 
 import SvgIconPlugin from './components/v-svg-icon/index'
-// import '@/styles/variables.scss'
+import '../src/styles/_module.scss'
 
 createApp(App).use(store).use(router).use(SvgIconPlugin).mount('#app')

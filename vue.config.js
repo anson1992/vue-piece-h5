@@ -15,6 +15,7 @@ const cdn = {
 
 module.exports = {
   productionSourceMap: false,
+  filenameHashing: true,
   // 链式调用
   chainWebpack: (config) => {
     // 解决热更失效问题
@@ -125,9 +126,11 @@ module.exports = {
   css: {
     extract: isProduction,
     loaderOptions: {
-      scss: {
-        additionalData: `@import "@styles/variables.scss;"`
-      },
+      // sass: {
+      //   additionalData: `
+      //   @import "@/styles/_module.scss";
+      // `
+      // },
       postcss: {
         plugins: [
           require('postcss-pxtorem')({
