@@ -1,5 +1,7 @@
 const { resolve } = require('path')
 const CompressionPlugin = require('compression-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
 // 需要压缩的类型
 const productionGzipExtensions = ['js', 'css']
 const isProduction = process.env.VUE_APP_GLOBAL_ENV !== 'development'
@@ -20,16 +22,19 @@ module.exports = {
     // 文件名路径
     config.resolve.alias
       .set('@', resolve('src'))
-      .set('assets', resolve('src/assets'))
+      .set('@assets', resolve('src/assets'))
+      .set('@styles', resolve('src/styles'))
     // 降低带宽请求
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
-    config.plugin('html').tap((args) => {
-      args[0].title = 'piece'
-      // html中添加cdn
-      args[0].cdn = cdn
-      return args
-    })
+    if (isProduction) {
+      config.plugin('html').tap((args) => {
+        args[0].title = 'piece'
+        // html中添加cdn
+        args[0].cdn = cdn
+        return args
+      })
+    }
     if (isProduction) {
       config
         .plugin('webpack-bundle-analyzer')
@@ -68,12 +73,43 @@ module.exports = {
         })
       )
     }
+    // build包隔离
     if (isProduction) {
       config.externals = { vant: 'vant' }
     }
+    // 去除console
+    if (isProduction) {
+      config.plugins.push(
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            compress: {
+              drop_console: true,
+              drop_debugger: false,
+              pure_funcs: [
+                'console.log',
+                'console.warn',
+                'console.info',
+                'console.error',
+                'console.debug'
+              ] // 移除console信息打印
+            },
+            warnings: false
+          },
+          sourceMap: false,
+          parallel: true
+        })
+      )
+    }
+    // 预加载
+    if (isProduction) {
+    }
   },
   css: {
+    extract: isProduction,
     loaderOptions: {
+      scss: {
+        additionalData: `@import "@styles/variables.scss;"`
+      },
       postcss: {
         plugins: [
           require('postcss-pxtorem')({

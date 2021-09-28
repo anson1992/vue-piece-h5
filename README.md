@@ -31,6 +31,9 @@ Vue3.2、webpack5、vant、Typescript、Pretter、Eslint、Vuex、Axios
 - [x] 图片压缩
 - [x] cdn加载包文件
 - [x] 添加打包分析
+- [x] 去除console.log
+- [ ] sass全局样式
+- [ ] prerender-spa-plugin 预渲染（更好的SEO，比SSR开发成本低，代码侵入性低）
 
 
 
