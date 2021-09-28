@@ -10,7 +10,7 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { reactive } from 'vue'
+  import { reactive, onMounted } from 'vue'
   import { Button } from 'vant'
   interface UserInfo {
     id: number
@@ -23,6 +23,9 @@
   const handleSubmit = () => {
     console.log(1)
   }
+  onMounted(() => {
+    document.dispatchEvent(new Event('render-event'))
+  })
 </script>
 <style scoped>
   @import url('./index.scss');

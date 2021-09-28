@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+const { resolve, join } = require('path')
 const CompressionPlugin = require('compression-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
@@ -102,6 +102,24 @@ module.exports = {
     }
     // 预加载
     if (isProduction) {
+      config.plugins.push(
+        new PrerenderSPAPlugin({
+          staticDir: join(__dirname, 'dist'),
+          routes: ['/home'],
+          // 忽略重定向redirects
+          postProcess(renderedRoute) {
+            renderedRoute.route = renderedRoute.originalRoute
+            return renderedRoute
+          },
+          renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
+            inject: {
+              foo: 'bar'
+            },
+            headless: false,
+            renderAfterDocumentEvent: 'render-event'
+          })
+        })
+      )
     }
   },
   css: {
