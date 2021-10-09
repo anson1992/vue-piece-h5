@@ -141,10 +141,21 @@ module.exports = {
       }
     }
   },
+
   devServer: {
     port: '8088',
     hot: true,
     open: true,
-    https: true
+    https: true,
+    proxy: {
+      '/coudMusicApi': {
+        target: process.env.VUE_APP_API_URL,
+        changeOrigin: true,
+        secure: false,
+        pathRewrite: {
+          '/coudMusicApi': '/'
+        }
+      }
+    }
   }
 }

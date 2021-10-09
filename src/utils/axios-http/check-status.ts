@@ -14,7 +14,7 @@ const _error = (message: string) =>
 export function checkStatus(status: number, msg?: string): void {
   switch (status) {
     case 400:
-      _error(`${msg} || 网络请求超时!`)
+      _error(msg || '网络请求超时！')
       break
     case 401:
       _error('用户没有权限（令牌、用户名、密码错误）!')
@@ -46,6 +46,6 @@ export function checkStatus(status: number, msg?: string): void {
       _error('http版本不支持该请求!')
       break
     default:
-      _error(`${msg} || 网络请求超时!`)
+      _error(msg || '网络请求超时！')
   }
 }

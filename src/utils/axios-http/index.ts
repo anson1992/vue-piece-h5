@@ -17,9 +17,9 @@ const handleError = (err: AxiosError) => {
   const _code = err.code ? parseInt(err.code) : 500
   // 开发环境打印错误信息
   if (isDev) {
-    console.error(`===status:${_code};===errorMessageText:${err.message}`)
+    console.error(`===status:${_code};===errorMessageText:${err?.message}`)
   }
-  checkStatus(_code, err.message)
+  checkStatus(_code, err?.message)
 }
 
 class VAxios {
@@ -51,8 +51,9 @@ class VAxios {
     const _opts: RequestOptions = Object.assign({}, this.options, options)
     // 格式化接口地址
     _conf.url = _conf?.url?.startsWith('http')
-      ? _conf.url
-      : `${location.origin}/${_conf.url}`
+      ? _conf?.url
+      : `${location.origin}/${_conf?.url}`
+
     const {
       contentType,
       isShowErrorMessage,
@@ -96,7 +97,7 @@ class VAxios {
               code: data.code.toString(),
               config: config,
               isAxiosError: false,
-              message: errorMessageText || data.msg,
+              message: errorMessageText || data?.msg,
               name: '',
               response: res,
               toJSON: () => {
@@ -111,11 +112,12 @@ class VAxios {
         Toast.clear()
         // 是否统一处理http接口请求异常
         if (isShowErrorMessage) {
+          const { data, statusText } = err.response as AxiosResponse
+
           handleError({
             ...err,
             code: err.response?.status.toString(),
-            message:
-              errorMessageText || (err.response as AxiosResponse).statusText
+            message: errorMessageText || data?.msg || statusText
           })
         }
         return Promise.reject(err.response)

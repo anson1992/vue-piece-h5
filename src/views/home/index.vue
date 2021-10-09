@@ -1,28 +1,14 @@
 <template>
-  <div class="user-info">
-    <span> {{ userInfo.id }}1 </span>
-    <span>
-      {{ userInfo.name }}
-    </span>
-    <Button type="primary" @click="handleSubmit">submit</Button>
-    <svg-icon icon-class="vue"></svg-icon>
-    <img alt="" class="logo-image" src="../../assets/images/xiaofa.png" />
+  <div class="home-index">
+    <cell-group title="基础功能">
+      <cell title="接口请求" is-link to="/api-group"></cell>
+      <cell title="Loading" is-link></cell>
+    </cell-group>
   </div>
 </template>
 <script setup lang="ts">
-  import { reactive, onMounted } from 'vue'
-  import { Button } from 'vant'
-  interface UserInfo {
-    id: number
-    name: string
-  }
-  const userInfo: UserInfo = reactive({
-    id: 1,
-    name: '常竣'
-  })
-  const handleSubmit = () => {
-    console.log(1)
-  }
+  import { onMounted } from 'vue'
+  import { CellGroup, Cell } from 'vant'
   onMounted(() => {
     document.dispatchEvent(new Event('render-event'))
   })
