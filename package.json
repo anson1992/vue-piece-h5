@@ -2,11 +2,13 @@
   "name": "vue-piece-h5",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build-fix": "vue-cli-service build --mode development-fix  --report",
-    "build-release": "vue-cli-service build --mode release  --report",
-    "build": "vue-cli-service build --mode production  --report",
+    "build-fix": "vue-cli-service build --mode development-fix",
+    "build-release": "vue-cli-service build --mode release",
+    "build": "vue-cli-service build --mode production",
+    "analyzer": "use_analyzer=true npm run build",
     "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "lint:markup": "vue-tsc --noEmit"
   },

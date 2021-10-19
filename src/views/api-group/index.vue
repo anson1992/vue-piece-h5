@@ -43,14 +43,14 @@
         })
       }
       const handleSendPut = () => {
-        sendLogoutApi().then((res: any) => {
+        sendLogoutApi().then(() => {
           Toast('退出登录成功！')
         })
       }
       return {
+        handleSendDel,
         handleSendGet,
         handleSendPost,
-        handleSendDel,
         handleSendPut
       }
     }

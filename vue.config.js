@@ -36,7 +36,7 @@ module.exports = {
         return args
       })
     }
-    if (isProduction) {
+    if (process.env.use_analyzer) {
       config
         .plugin('webpack-bundle-analyzer')
         .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
@@ -62,7 +62,7 @@ module.exports = {
       .end()
   },
   configureWebpack: (config) => {
-    // 打包环境
+    // gzip压缩
     if (isProduction) {
       config.plugins.push(
         new CompressionPlugin({
@@ -74,7 +74,7 @@ module.exports = {
         })
       )
     }
-    // build包隔离
+    // 依赖包隔离
     if (isProduction) {
       config.externals = { vant: 'vant' }
     }
@@ -83,6 +83,9 @@ module.exports = {
       config.plugins.push(
         new UglifyJsPlugin({
           uglifyOptions: {
+            output: {
+              comments: false // 去掉注释
+            },
             compress: {
               drop_console: true,
               drop_debugger: false,
@@ -124,7 +127,8 @@ module.exports = {
     }
   },
   css: {
-    extract: isProduction,
+    extract: true,
+    // extract: isProduction,
     loaderOptions: {
       // sass: {
       //   additionalData: `
@@ -146,7 +150,7 @@ module.exports = {
     port: '8088',
     hot: true,
     open: true,
-    https: true,
+    https: isProduction,
     proxy: {
       '/coudMusicApi': {
         target: process.env.VUE_APP_API_URL,

@@ -7,14 +7,14 @@
 
 ### 技术语言
 ```
-Vue3.2、webpack5、vant、Typescript、Pretter、Eslint、Vuex、Axios
+Vue3.2、Webpack5、Vant、Typescript、Pretter、Eslint、Vuex、Axios
 ```
 
 ### 分支管理：开发/发布/缺陷分离模型
 
 |  环境  | 分支  | 标识  | 打包命令  |
 | ------------ | ------------ | ------------ | ------------ |
-| 开发  | development  | development  |  npm run serve  |
+| 开发  | development  | development  |  npm run dev  |
 | 测试  | development-fix  | development-fix  |  npm run build-dev-fix  |
 | 预发布  | release  |  release |  npm run build-release  |
 | 生产  | production  | production  |  npm run build  |
@@ -23,7 +23,7 @@ Vue3.2、webpack5、vant、Typescript、Pretter、Eslint、Vuex、Axios
 - [x] 禁用js和css的预加载
 - [x] Gizp压缩js
 - [x] 全局环境变量+打包配置
-- [ ] 跨域proxy代理
+- [x] 跨域proxy代理
 - [x] 修复 HMR(热更新)失效
 - [x] 添加请求别名Alias
 - [x] px转rem移动端适配
@@ -34,6 +34,8 @@ Vue3.2、webpack5、vant、Typescript、Pretter、Eslint、Vuex、Axios
 - [x] 去除console.log
 - [x] sass全局样式
 - [x] prerender-spa-plugin 预渲染（更好的SEO，比SSR开发成本低，代码侵入性低）
+- [ ] 数据监控
+- [ ] 骨架屏
 
 
 

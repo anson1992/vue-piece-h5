@@ -19,8 +19,8 @@ export const sendCodeApi = () => {
 }
 export const sendDelUserApi = () => {
   return request.request({
-    url: 'coudMusicApi/playlist/delete?id=2947311456',
-    method: RequestTypeEnum.DELETE
+    method: RequestTypeEnum.DELETE,
+    url: 'coudMusicApi/playlist/delete?id=2947311456'
   })
 }
 export const sendLogoutApi = () => {
