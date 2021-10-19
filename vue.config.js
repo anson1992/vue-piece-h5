@@ -127,8 +127,7 @@ module.exports = {
     }
   },
   css: {
-    extract: true,
-    // extract: isProduction,
+    extract: isProduction,
     loaderOptions: {
       // sass: {
       //   additionalData: `
