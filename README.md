@@ -35,7 +35,7 @@ Vue3.2、Webpack5、Vant、Typescript、Pretter、Eslint、Vuex、Axios
 - [x] sass全局样式
 - [x] prerender-spa-plugin 预渲染（更好的SEO，比SSR开发成本低，代码侵入性低）
 - [ ] 数据监控
-- [ ] 骨架屏
+- [x] 骨架屏
 
 
 
