@@ -17,9 +17,9 @@
   const isLoading: Ref<boolean> = ref(true)
   onMounted(() => {
     document.dispatchEvent(new Event('render-event'))
-    // setTimeout(() => {
-    //   isLoading.value = false
-    // }, 4000)
+    setTimeout(() => {
+      isLoading.value = false
+    }, 4000)
   })
 </script>
 <style lang="scss" scoped>
