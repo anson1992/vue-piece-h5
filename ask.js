@@ -1,13 +1,13 @@
 module.exports = [
   {
-    type: 'confirm',
-    name: 'private',
-    message: 'this resgistery is private?'
+    type: 'input',
+    name: 'name',
+    message: 'project name is?'
   },
   {
     type: 'input',
-    name: 'author',
-    message: 'author?'
+    name: 'version',
+    message: 'project version is?'
   },
   {
     type: 'input',
@@ -16,7 +16,17 @@ module.exports = [
   },
   {
     type: 'input',
-    name: 'git path',
-    message: 'git path?'
+    name: 'author',
+    message: 'author?'
+  },
+  {
+    type: 'confirm',
+    name: 'private',
+    message: 'this resgistery is private?'
+  },
+  {
+    type: 'input',
+    name: 'license',
+    message: 'license?'
   }
 ]

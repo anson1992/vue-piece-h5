@@ -1,8 +1,10 @@
 {
-  "name": "vue-piece-h5",
-  "version": "0.1.0",
-  "private": true,
-  "license": "UNLICENSED",
+  "name": "<%=name%>",
+  "version": "<%=version%>",
+  "private": "<%=private%>",
+  "author": "<%=author%>",
+  "description": "<%=description%>",
+  "license": "<%=license%>",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build-fix": "vue-cli-service build --mode development-fix",
