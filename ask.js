@@ -2,22 +2,26 @@ module.exports = [
   {
     type: 'input',
     name: 'name',
-    message: 'project name is?'
+    message: 'project name is?',
+    default: 'vue-piece-h5'
   },
   {
     type: 'input',
     name: 'version',
-    message: 'project version is?'
+    message: 'project version is?',
+    default: '1.0.0'
   },
   {
     type: 'input',
     name: 'description',
-    message: 'description?'
+    message: 'description?',
+    default: 'this is a h5 template project'
   },
   {
     type: 'input',
     name: 'author',
-    message: 'author?'
+    message: 'author?',
+    default: 'changjun'
   },
   {
     type: 'confirm',
@@ -27,6 +31,7 @@ module.exports = [
   {
     type: 'input',
     name: 'license',
-    message: 'license?'
+    message: 'license?',
+    default: 'ISC'
   }
 ]
